@@ -16,18 +16,19 @@ const assets = [
 ];
 
 self.addEventListener("install", installEvent => {
+  let version = 4;
+      console.log("Service worker installed !");
+      console.log("version:" + version);
   installEvent.waitUntil(
     caches.open(staticDevCoffee).then(cache => {
       cache.addAll(assets);
-      let version = 3;
-      console.log("Service worker installed !");
-      console.log("version:" + version);
+      
     })
   );
 });
 
 self.addEventListener("activate", function(e) {
-    let version = 3;
+    let version = 4;
     console.log("Service worker activated !");
     console.log("version:" + version);
   }
